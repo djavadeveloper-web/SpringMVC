@@ -7,8 +7,11 @@
 <title>Success</title>
 </head>
 <body>
-<h2><br>${msg}</h2>
+<h2>Welcome to your ${message}</h2>
 
+<p>Hello , ${student.firstname} ${student.lastname}</p>
+<br>
+<p>Your complete address is : ${student.address.city},${student.address.state},${student.address.pincode}</p>
 
 </body>
 </html>

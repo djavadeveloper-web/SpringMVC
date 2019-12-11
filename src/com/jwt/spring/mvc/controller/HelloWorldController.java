@@ -3,7 +3,9 @@ package com.jwt.spring.mvc.controller;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,15 +21,23 @@ public class HelloWorldController {
 		
 		return model;
 	}
+	
+	@ModelAttribute
+	public void getCommonMessage(Model model) {
+		
+		model.addAttribute("message", "Spring MVC Success Page !");
+
+		
+		
+	}
 
 
 	@RequestMapping(value="/admissionSubmit.html", method = RequestMethod.POST)
-	public ModelAndView admissionSubmit(@RequestParam Map<String,String> repar) {
+	public ModelAndView admissionSubmit(@ModelAttribute ("student") Student  student) {
 		
-		String firstName=repar.get("firstname");
-		String lastName=repar.get("lastname");
 		ModelAndView model= new ModelAndView("SuccessPage");
-		model.addObject("msg","Please Welcome "+ firstName +"  "+ lastName);
+		
+		
 		
 		return model;
 	}

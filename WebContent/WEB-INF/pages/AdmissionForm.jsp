@@ -15,6 +15,16 @@
   Last name:<br>
   <input type="text" name="lastname"   >
   <br><br>
+  City :<br>
+  <input type="text" name="address.city"  >
+  <br>
+  State :<br>
+  <input type="text" name="address.state"   >
+  <br>
+  Pincode :<br>
+  <input type="text" name="address.pincode"  >
+  <br>
+  
   <input type="submit" >
 </form> 
 
