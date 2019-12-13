@@ -5,6 +5,8 @@ import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +15,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HelloWorldController {
+	
+	@InitBinder
+    public void initBinder(WebDataBinder dataBinder) {
+        dataBinder.setDisallowedFields(new String [] {"lastname"});
+        dataBinder.registerCustomEditor(String.class,"firstname",new StudentNameEditor());
+        
+    }
 
 	@RequestMapping(value="/admissionform.html",method = RequestMethod.GET)
 	public ModelAndView getAmissionForm() {
