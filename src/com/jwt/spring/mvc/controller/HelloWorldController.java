@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,9 +25,17 @@ public class HelloWorldController {
     }
 
 	@RequestMapping(value="/admissionform.html",method = RequestMethod.GET)
-	public ModelAndView getAmissionForm() {
+	public ModelAndView getAmissionForm() throws Exception{
 		
-		ModelAndView model=new  ModelAndView("AdmissionForm");
+		String exceptionOccured="NULL_POINTER";
+		
+		 if(exceptionOccured.equalsIgnoreCase("NULL_POINTER"))
+		 {
+			 throw new NullPointerException("Null Pointer Exception !!");
+		
+		 }
+		
+		ModelAndView  model = new  ModelAndView("AdmissionForm");
 		
 		return model;
 	}
@@ -50,5 +59,6 @@ public class HelloWorldController {
 		
 		return model;
 	}
-
+	
+	
 }
