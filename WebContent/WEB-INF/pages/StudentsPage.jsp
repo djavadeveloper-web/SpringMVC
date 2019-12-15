@@ -7,7 +7,7 @@
 <title>Student Details !</title>
 </head>
 <body>
-<h2>Students are :</h2>
+<h2>Students in the list are  :</h2>
 <br>
 
 <p>${studentlist}</p>
