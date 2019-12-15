@@ -1,5 +1,6 @@
 package com.jwt.spring.mvc.controller;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -59,6 +61,30 @@ public class HelloWorldController {
 		
 		return model;
 	}
+	
+	@ResponseBody
+	@RequestMapping(value="/students", method = RequestMethod.GET)
+	public ModelAndView getStudents(){
+		
+		
+		ArrayList<Student>  studentlist= new ArrayList<Student>();
+		
+		Student  stud1=new Student("Deepak","Gupta");
+		Student  stud2=new Student("Digvijay","Gupta");
+		Student  stud3=new Student("Abhishek","Gupta");
+		
+		studentlist.add(stud1);
+		studentlist.add(stud2);
+		studentlist.add(stud3);
+		ModelAndView model= new ModelAndView("StudentsPage");
+		model.addObject("studentlist", studentlist);
+		
+		
+		return model;
+		
+		
+	}
+	
 	
 	
 }
