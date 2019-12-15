@@ -14,6 +14,10 @@ public class Student {
 		this.lastname = lastname;
 	}
 	
+	public Student() {
+		super();
+	}
+
 	public Address getAddress() {
 		return address;
 	}

@@ -29,14 +29,14 @@ public class HelloWorldController {
 	@RequestMapping(value="/admissionform.html",method = RequestMethod.GET)
 	public ModelAndView getAmissionForm() throws Exception{
 		
-		String exceptionOccured="NULL_POINTER";
+		/**String exceptionOccured="NULL_POINTER";
 		
 		 if(exceptionOccured.equalsIgnoreCase("NULL_POINTER"))
 		 {
 			 throw new NullPointerException("Null Pointer Exception !!");
 		
 		 }
-		
+		*/
 		ModelAndView  model = new  ModelAndView("AdmissionForm");
 		
 		return model;
